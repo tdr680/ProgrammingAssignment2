@@ -1,18 +1,24 @@
-## Put comments here that give an overall description of what your
-## functions do
+## two functions to cache inverse matrix operation
 
 ## > n <- 1000
 ## > m <- makeCacheMatrix(matrix(runif(n^2), n))
-## > i <- cacheSolve(m)
+##
+## > system.time({i <- cacheSolve(m)})
+##    user  system elapsed 
+##   2.929   0.038   2.965 
+##
 ## > i[1,]
 ##    [1]  0.1163227551  0.0024698800  0.1211830392  0.0347113757  0.1023151509 ...
 ## 
-## > i <- cacheSolve(m)
+## > system.time({i <- cacheSolve(m)})
 ## getting cached data
+##    user  system elapsed 
+##   0.001   0.000   0.001 
+##
 ## > i[1,]
 ##    [1]  0.1163227551  0.0024698800  0.1211830392  0.0347113757  0.1023151509 ...  
 
-## Write a short comment describing this function
+## returns a list of functions accessing matrix 'i' captured in environment
 
 makeCacheMatrix <- function(x = matrix()) {
 
@@ -31,7 +37,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## calculates inverse matrix if not already stored in 'i' (see 'makeCacheMatrix')
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
